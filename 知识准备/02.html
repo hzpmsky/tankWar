@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+ <canvas id='can1' width='500px' height='400px' style='border:1px solid red'></canvas>
+    <script>
+	  var canvas=document.getElementById('can1');
+	  var ctx=canvas.getContext('2d');
+	  ctx.moveTo(20,20);
+	  ctx.lineTo(20,100);
+	  ctx.stroke();
+	  
+	  ctx.beginPath();
+      ctx.moveTo(40,20);
+	  ctx.lineTo(40,90);
+	  ctx.lineTo(80,90);
+	  ctx.closePath();
+	  
+     // ctx.fill();  填充
+	  ctx.stroke();  //画线
+	 //对于矩形
+	 ctx.strokeRect(200,200,150,100);
+	 ctx.fillStyle='red';
+	 ctx.fillRect(90,40,50,50);
+	 //圆形
+	 ctx.beginPath();
+     ctx.arc(200,80,30,0,2*Math.PI,true);
+	 ctx.closePath();
+    // ctx.stroke();
+     ctx.fill();
+	 //画照片
+	 //县创建image对象  指定是那张图片
+     var img= new Image();
+	 img.src="12.png";
+	 img.onload=function(){
+      ctx.drawImage(img,10,100,200,250);//图片对象 左上角坐标  宽 高
+	 }
+	 //画布上写字
+	 ctx.fillStyle='pink';
+	 ctx.font="40px Arial";
+     ctx.fillText("Hello World",300,100);
+	// ctx.font="40px Arial";
+	</script>
+ </body>
+</html>

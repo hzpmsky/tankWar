@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+ <canvas id='canvas1' width='1000px' height='1000px' style="border:1px solid red"></canvas>
+    <script>
+	//30,5   10,20
+	  var cavs=document.getElementById('canvas1');
+	  var ctx=cavs.getContext('2d');
+	  ctx.strokeRect(50,50,10,40);
+	  ctx.beginPath();
+	  ctx.arc(74,70,14,0,2*Math.PI,true);
+	  ctx.closePath();
+	  ctx.stroke();
+	  ctx.strokeRect(88,50,10,40);
+	  ctx.fillRect(74,70,3,30);
+	  
+	</script>
+ </body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+ <canvas id="can1" width="500px" height="400px" style="border:1px solid red"></canvas>
+    <script>
+	//得到画布
+	  var canvas=document.getElementById("can1");
+	  //得到画笔 上下文的引用
+	  var ctx=canvas.getContext("2d");
+	  /*
+	  //划出一条直线
+	  cxt.moveTo(20,20);
+	  cxt.lineTo(20,90);
+
+	//  cxt.stroke();
+	  //画三角形
+	  //开始新路径
+      cxt.beginPath();
+	  cxt.moveTo(40,20);
+      cxt.lineTo(40,90);
+	  cxt.lineTo(40,190);
+	  ctx.fillStyle="#00ff00";
+	
+	//  console.log(typeof canvas,canvas,typeof cxt,cxt);
+
+	      ctx.fillStyle='#BA9658';
+	     
+		  ctx.fillRect(50,50,10,40);
+		  
+		  ctx.beginPath();
+		  ctx.fillStyle='#BA9658';
+		 
+		  ctx.arc(50+10+14,50+20,14,0,2*Math.PI,true);
+		  ctx.closePath();
+		  ctx.stroke();
+		  ctx.fillStyle='red';
+		  ctx.strokeRect(50+10+28,50,10,40);
+		  */
+		  ctx.strokeStyle='yellow';
+		  ctx.lineWidth=1.5;
+		  ctx.beginPath();
+
+		  ctx.moveTo(20,10+14);
+		 
+		  ctx.lineTo(40+20+30,10+14);
+		  ctx.closePath();
+		  ctx.stroke();
+		  
+	</script>
+ </body>
+</html>

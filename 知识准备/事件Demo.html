@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body onkeydown='test()'>
+ <canvas id='can1' width='400px' height='300px' style='background-color:white'></canvas>
+   <script>
+     //事件处理机制
+	 //让小球受键盘控制  上下左右移动
+     var cvs=document.getElementById('can1');
+	 var ctx=cvs.getContext('2d');
+     var ballX=30;
+	 var ballY=30;
+	 function drawBall(){
+    /* ctx.fillStyle='red';
+	 ctx.beginPath();
+	 ctx.arc(ballX,ballY,10,0,2*Math.PI,true);
+	 ctx.closePath();
+	 ctx.fill();
+	 */
+	  var cavs=document.getElementById('can1');
+	  var ctx=cavs.getContext('2d');
+	  ctx.strokeRect(ballX,ballY,10,40);
+	  ctx.beginPath();
+	  ctx.arc(ballX+10+14,ballY+20,14,0,2*Math.PI,true);
+	  ctx.closePath();
+	  ctx.stroke();
+	  ctx.strokeRect(ballX+10+28,ballY,10,40);
+
+      ctx.strokeStyle='black';
+	  ctx.lineWidth=1.5
+	  ctx.beginPath();
+	  ctx.lineTo(ballX+10+14,ballY+20);
+	  ctx.moveTo(ballX+10+14,ballY-10);
+	  ctx.closePath();
+	  ctx.stroke();
+	 }
+     drawBall();
+	 /*w a s d 上左下右键盘控制，87上 68右 83下 65左  事件源--event对象--
+	 按了键之后，event对象（属性）---事件处理函数
+	 让小球动，就是重绘
+	 onkeydown
+	 clearRect()：清屏
+	 */
+    function test(){
+		console.log(typeof event, event);
+	var code=event.keyCode;
+    switch(code){
+	case 87: ballY--;break;
+	case 83: ballY++;break;
+	case 65: ballX--;break;
+	case 68: ballX++;break;
+	 }
+	 ctx.clearRect(0,0,400,300);
+	 drawBall();
+	}
+   </script>
+ </body>
+</html>

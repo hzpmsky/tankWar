@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src='TankGame2.js'></script>
+ </head>
+ <body onkeydown='getCommand()'>
+ <canvas id='can1' width='400px' height='300px' style='background-color:white'></canvas>
+   <script>
+      //画布
+      var cavs=document.getElementById('can1');
+	  var ctx=cavs.getContext('2d');
+      //创建一个Tank实例
+	  var myTank=new Tank(40,40,0);
+	  console.log(myTank);
+	  //绘制tank
+	  drawTank(myTank);
+	  //获取键盘指令
+	 function getCommand(){
+	   var code=event.keyCode;
+	   console.log('code'+code);
+     switch(code){
+		case 87:
+			myTank.moveUp();	
+		    break;
+		case 83: 
+			myTank.moveDown();
+			break;
+		case 65: 
+		myTank.moveLeft();
+		break;
+		case 68: 
+		myTank.moveRight();
+		break;
+	 }
+	    ctx.clearRect(0,0,400,300);
+	    drawTank(myTank);
+	 }
+   </script>
+ </body>
+</html>

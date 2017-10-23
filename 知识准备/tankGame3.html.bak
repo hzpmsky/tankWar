@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>画出敌人的坦克</title>
+  <script src='TankGame3.js'></script>
+ </head>
+ <body onkeydown='getCommand()'>
+ <canvas id='can1' width='400px' height='300px' style='background-color:white'></canvas>
+   <script>
+      //画布
+      var cavs=document.getElementById('can1');
+	  var ctx=cavs.getContext('2d');
+      //创建一个MyTank实例
+	  var myTank=new MyTank(40,40,0,myTankColor);
+      var enemyTanks=new Array();
+      for(var i=0;i<3;i++){
+	     enemyTanks[i]=new EnemyTank((i+1)*100,0,2,enemyColor);
+	  }
+
+     //刷新地图  自己的坦克  敌方坦克  子弹  爆炸  障碍物
+	 reflashMap();
+	  function  reflashMap(){
+     //清除地图，画自己的坦克  地方的坦克  子弹  障碍物 爆炸
+        ctx.clearRect(0,0,400,300);
+		
+	    drawTank(myTank);
+		for(var i=0;i<3;i++){
+		   drawTank(enemyTanks[i]);
+		}
+	  }
+	  //绘制tank
+	  
+	  //获取键盘指令
+	 function getCommand(){
+	   var code=event.keyCode;
+	   console.log('code'+code);
+     switch(code){
+		case 87:
+			myTank.moveUp();	
+		    break;
+		case 83: 
+			myTank.moveDown();
+			break;
+		case 65: 
+		myTank.moveLeft();
+		break;
+		case 68: 
+		myTank.moveRight();
+		break;
+	 }
+	    reflashMap();
+	    
+		//重绘自己坦克
+	    //drawTank(myTank);
+		//重绘地方坦克  不能按上面的方法进行绘制 函数定时刷新
+		//drawTank(enemyTank);
+	 }
+   </script>
+ </body>
+</html>
